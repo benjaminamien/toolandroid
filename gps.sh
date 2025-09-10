@@ -6,11 +6,11 @@ CHAT_ID="8107240151"
 
 while true; do
     # Ambil lokasi dari GPS
-    LOC=$(termux-location 2>/dev/null)
+    LOC=$(termux-location -p gps 2>/dev/null)
 
     # Fallback ke network jika GPS gagal
     if [ -z "$LOC" ]; then
-        LOC=$(termux-location 2>/dev/null)
+        LOC=$(termux-location -p network 2>/dev/null)
     fi
 
     # Cek hasil lokasi
